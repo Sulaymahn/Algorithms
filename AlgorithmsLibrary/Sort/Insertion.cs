@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsLibrary.Sort
 {
-    internal class Insertion : SortBase
+    public class Insertion : SortBase
     {
         public override void Sort(int[] seq)
         {
             for (int i = 1; i < seq.Length; i++)
             {
-                int key = seq[i];
+                int currentValue = seq[i];
                 int sortedIndex = i - 1;
-                while (sortedIndex >= 0 && seq[sortedIndex] > key)
+                while (sortedIndex >= 0 && seq[sortedIndex] > currentValue)
                 {
-                    seq[i] = seq[sortedIndex];
+                    seq[sortedIndex + 1] = seq[sortedIndex];
                     sortedIndex--;
                 }
-                seq[sortedIndex + 1] = key;
+                seq[sortedIndex + 1] = currentValue;
             }
         }
     }
